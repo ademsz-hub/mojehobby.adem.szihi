@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Wyczerpująca strona o parowozach: historia, budowa, typy, najsłynniejsze egzemplarze, zdjęcia i interaktywna oś czasu.">
+  <title>Parowozy — kompletny przewodnik</title>
+  <style>
+    :root{
+      --accent:#e6392e; /* czerwony */
+      --secondary:#ff7f11; /* pomarańczowy */
+      --dark:#1a1a1a; /* czarny */
+      --muted:#6b7280;
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --maxw:1100px;
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--dark),#2c2c2c);color:#f1f1f1}
+    .container{max-width:var(--maxw);margin:32px auto;padding:24px}
+
+    /* Pasek nagłówka z pasami */
+    header::before{
+      content:"";
+      display:block;
+      height:12px;
+      background:linear-gradient(90deg,var(--accent),var(--secondary));
+    }
+    header{display:flex;align-items:center;gap:20px;padding:16px 24px;background:linear-gradient(180deg,#1a1a1a,#2b2b2b)}
+    .logo{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--secondary));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 6px 20px rgba(8,30,50,.3)}
+    nav{margin-left:auto}
+    nav a{color:var(--secondary);text-decoration:none;margin-left:14px;font-weight:600}
+    h1{margin:0;font-size:28px;color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 24px rgba(12,30,60,.2);color:#1a1a1a}
+    .intro p{color:#333;line-height:1.6}
+    .quick-stats{display:flex;gap:12px;margin-top:12px}
+    .stat{background:linear-gradient(180deg,#fff,#ffe5d1);padding:12px;border-radius:10px;flex:1;text-align:center}
+    .stat h3{margin:0;font-size:14px;color:var(--muted)}
+    .stat p{margin:6px 0 0;font-weight:700;font-size:18px;color:var(--accent)}
+
+    .main{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:20px}
+    .section{margin-bottom:18px}
+    h2{margin:6px 0 12px;color:var(--accent)}
+    article p{line-height:1.65;color:#213043}
+
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery-item{position:relative;overflow:hidden;border-radius:8px;cursor:pointer}
+    .gallery-item img{width:100%;display:block;transition: transform 0.3s;}
+    .gallery-item:hover img{transform: scale(1.05);}
+    .caption{position:absolute;bottom:8px;left:8px;right:8px;color:white;font-weight:700;background:rgba(0,0,0,0.4);padding:4px 6px;border-radius:4px;text-align:center;}
+
+    .timeline{padding:12px}
+    .timeline-list{list-style:none;padding:0;margin:0}
+    .timeline-list li{padding:10px;border-left:3px solid var(--secondary);margin-left:8px;margin-bottom:8px;background:linear-gradient(90deg,#fff,#fff3e5);border-radius:8px;color:#1a1a1a}
+    .timeline-year{font-weight:800;color:var(--accent)}
+
+    .glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .term{background:#fff;padding:12px;border-radius:8px;color:#1a1a1a}
+
+    aside .card{position:sticky;top:24px}
+    .toc a{display:block;padding:8px 0;color:var(--dark);text-decoration:none}
+
+    /* Pasek stopki z pasami */
+    footer{margin-top:32px;text-align:center;color:#ddd;font-size:14px}
+    footer::before{
+      content:"";
+      display:block;
+      height:10px;
+      background:linear-gradient(90deg,var(--accent),var(--secondary));
+    }
+    footer .card{background:#1a1a1a;color:#f1f1f1}
+
+    @media (max-width:1000px){.hero{grid-template-columns:1fr} .main{grid-template-columns:1fr} .gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.gallery-grid{grid-template-columns:1fr} .logo{display:none}}
+
+    .controls{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{border:0;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+    .btn.secondary{background:var(--secondary);color:white}
+
+    pre{background:#1a1a1a;color:#ffccb5;padding:12px;border-radius:8px;overflow:auto}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">PW</div>
+    <div>
+      <h1>Parowozy — kompletny przewodnik</h1>
+      <div style="color:var(--secondary)">Historia, budowa, eksploatacja i najważniejsze egzemplarze z całego świata</div>
+    </div>
+    <nav aria-label="Główne menu">
+      <a href="#historia">Historia</a>
+      <a href="#budowa">Budowa</a>
+      <a href="#typy">Typy</a>
+      <a href="#galeria">Galeria</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <div class="card intro">
+        <p><strong>Parowozy</strong> to jedne z najbardziej wpływowych maszyn epoki przemysłowej — napędzane parą wodną, które przez ponad sto lat kształtowały handel, przemysł i transport. Ta strona przeprowadzi Cię przez techniczne i kulturowe aspekty parowozów, pokaże ikony i wyjaśni, jak zbudować model parowozu krok po kroku.</p>
+
+        <div class="quick-stats">
+          <div class="stat"><h3>Okres dominacji</h3><p>XIX w. – poł. XX w.</p></div>
+          <div class="stat"><h3>Napęd</h3><p>Para wodna</p></div>
+          <div class="stat"><h3>Typy</h3><p>Towarowe, pasażerskie, przemysłowe</p></div>
+        </div>
+
+        <div style="margin-top:14px" class="controls">
+          <button class="btn" onclick="document.getElementById('galeria').scrollIntoView({behavior:'smooth'})">Zobacz galerię</button>
+          <button class="btn secondary" onclick="document.getElementById('timeline').scrollIntoView({behavior:'smooth'})">Oś czasu</button>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3>Spis treści</h3>
+        <nav class="toc">
+          <a href="#historia">Historia</a>
+          <a href="#rozwoj">Rozwój technologii</a>
+          <a href="#budowa">Budowa</a>
+          <a href="#typy">Typy i rozkłady osi</a>
+          <a href="#slawne">Sławne parowozy</a>
+          <a href="#zachowane">Zachowane egzemplarze</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#glosariusz">Słowniczek</a>
+        </nav>
+      </aside>
+    </section>
+
+    <main class="main">
+      <div>
+        <!-- Historia -->
+        <article class="section" id="historia">
+          <h2>Historia</h2>
+          <p>Pierwsze parowozy powstały na początku XIX wieku w Wielkiej Brytanii. George Stephenson zaprezentował w 1829 roku słynnego „Rocket” (którą też widziałem na żywo, oryginał znajduje się w Shildon), który stał się wzorem dla kolejnych konstrukcji. Wkrótce sieć kolejowa objęła Europę, Amerykę i Azję, zmieniając gospodarkę i kulturę.</p>
+        </article>
+
+        <!-- Rozwój -->
+        <article class="section" id="rozwoj">
+          <h2>Rozwój technologii</h2>
+          <p>Od prostych kotłów i pionowych cylindrów parowozy ewoluowały w kierunku ogromnych, skomplikowanych maszyn z wieloma osiami napędowymi, nadciśnieniowymi kotłami i specjalnymi systemami smarowania. W XX wieku pojawiły się parowozy o dużej mocy, takie jak amerykański Union Pacific „Big Boy”.</p>
+        </article>
+
+        <!-- Budowa -->
+        <article class="section" id="budowa">
+          <h2>Budowa parowozu</h2>
+          <p>Parowóz składa się z kilku głównych części: kotła, cylindrów, układu napędowego, budki maszynisty i tendra. Para wodna pod wysokim ciśnieniem napędza tłoki w cylindrach, które poruszają koła poprzez system korbowodów.</p>
+          <pre>
+Schemat:
+ ┌──────────────┐
+ │   Kocioł     │
+ └──────┬───────┘
+        │ para
+        ▼
+     ┌───────┐
+     │Tłoki  │
+     └──┬────┘
+        ▼
+     [Koła]
+          </pre>
+        </article>
+
+        <!-- Typy -->
+        <article class="section" id="typy">
+          <h2>Typy i rozkłady osi</h2>
+          <p>Parowozy dzielono według przeznaczenia i układu osi: lekkie parowozy manewrowe, silne parowozy towarowe oraz szybkie parowozy pasażerskie. Klasyfikacja Whyte’a opiera się na liczbie osi prowadzących, napędowych i tocznych (np. 4-6-2 „Pacific”).</p>
+        </article>
+
+        <!-- Sławne -->
+        <article class="section" id="slawne">
+          <h2>Sławne parowozy</h2>
+          <ul>
+             <li><strong>LNER Class A3 "Flying Scotsman"</strong> (Wielka Brytania) – Najbardziej znana lokomotywa parowa na świecie. Była na różnych kontynentach (została zbudowana w Wielkiej Brytanii w Doncaster, właściciel jeździł nią w różnych krajach).</li>
+            <li><strong>Union Pacific "Big Boy"</strong> (USA) – największa lokomotywa parowa na świecie jaka przetrwała (istniały większe, lecz niestety koleje które się nimi zajmowały i je zaprojektowały, zbankrutowały.</li>
+            <li><strong>Pm36-1</strong> (Polska) – nagrodzona złotym medalem na Wystawie w Paryżu w 1937 r.</li>
+            <li><strong>SP 4449</strong> (USA) – słynny „Daylight” jest to najpiękniejszy parowóz na świecie. Kursowała między Los Angeles a San Fransisco. Dziś można ją podziwiać w Oregon Rail Heritage Center, i sam ją widziałem.</li>
+          </ul>
+        </article>
+
+        <!-- Zachowane -->
+        <article class="section" id="zachowane">
+          <h2>Zachowane egzemplarze</h2>
+          <p>Wiele parowozów można podziwiać w muzeach i podczas imprez kolejowych. W Polsce ważne zbiory znajdują się w Wolsztynie, Chabówce czy Skierniewicach. W USA kursuje odrestaurowany Southern Pacific #4449 "Daylight" oraz Union Pacific "Big Boy" #4014 oraz wiele, wiele, wiele innych.</p>
+        </article>
+
+        <!-- Galeria -->
+        <article class="section" id="galeria">
+          <h2>Galeria</h2>
+          <div class="controls">
+            <button class="btn" onclick="shuffleGallery()">Losowo</button>
+            <button class="btn secondary" onclick="toggleCaptions()">Napisy</button>
+          </div>
+          <div class="gallery-grid" id="gallery">
+            <div class="gallery-item">
+              <img src="C:\Users\PC\Desktop\Parowozy Moje Hobby/scotsman.webp" alt="Flying Scotsman">
+              <div class="caption">Flying Scotsman</div>
+            </div>
+            <div class="gallery-item">
+              <img src="C:\Users\PC\Desktop\Parowozy Moje Hobby/4014.webp" alt="Union Pacific Big Boy #4014">
+              <div class="caption">Big Boy</div>
+            </div>
+            <div class="gallery-item">
+              <img src="C:\Users\PC\Desktop\Parowozy Moje Hobby/36.webp" alt="Pm36-1">
+              <div class="caption">Pm36-1</div>
+            </div>
+            <div class="gallery-item">
+              <img src="C:\Users\PC\Desktop\Parowozy Moje Hobby/4449.webp" alt="Southern Pacific #4449">
+              <div class="caption">SP 4449</div>
+            </div>
+           </div>
+        </article>
+
+        <!-- Oś czasu -->
+        <article class="section" id="timeline">
+          <h2>Oś czasu</h2>
+          <div class="timeline">
+            <ul class="timeline-list">
+              <li><span class="timeline-year">1804</span> – pierwszy parowóz Trevithicka.</li>
+              <li><span class="timeline-year">1829</span> – Rocket George’a Stephensona.</li>
+              <li><span class="timeline-year">1937</span> – Pm36-1 zdobywa złoty medal w Paryżu.</li>
+              <li><span class="timeline-year">1941</span> – powstają Union Pacific „Big Boy”.</li>
+              <li><span class="timeline-year">1975</span> – odrestaurowanie SP 4449.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Modelarstwo -->
+        <article class="section" id="modelarstwo">
+          <h2>Modelarstwo</h2>
+          <p>Modelarstwo kolejowe to pasja wielu, jak i moje, mam wiele modeli lokomotyw parowych w różnych skalach. Parowozy w skali HO lub N pozwalają odtworzyć całe epoki i scenerie. Wymaga to precyzji i cierpliwości, ale daje ogromną frajde!
